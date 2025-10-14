@@ -2,6 +2,7 @@ import { app, BrowserWindow, ipcMain, protocol, net } from 'electron';
 import path from 'path';
 import url from 'url';
 import { stat } from 'node:fs/promises';
+import './db';
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 import electronSquirrelStartup from 'electron-squirrel-startup';

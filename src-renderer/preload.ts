@@ -12,3 +12,8 @@ const exposeInRenderer = {
 };
 
 for(const [key, value] of Object.entries(exposeInRenderer)) contextBridge.exposeInMainWorld(key, value);
+
+contextBridge.exposeInMainWorld("db", {
+  query: (sql: string) => ipcRenderer.invoke("db:query", sql),
+  execute: (sql: string) => ipcRenderer.invoke("db:execute", sql),
+});
